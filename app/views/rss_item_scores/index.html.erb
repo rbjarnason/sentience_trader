@@ -1,0 +1,36 @@
+<h1>Listing rss_item_scores</h1>
+
+<table>
+  <tr>
+    <th>Rss item</th>
+    <th>Classification strategy</th>
+    <th>Sentiment score</th>
+    <th>Objective subjective score</th>
+    <th>Average sentiment score</th>
+    <th>Average importance score</th>
+    <th>Average objective subjective score</th>
+    <th>Average trusted untrusted score</th>
+    <th>Average relevant irrelevant score</th>
+  </tr>
+
+<% for rss_item_score in @rss_item_scores %>
+  <tr>
+    <td><%=h rss_item_score.rss_item_id %></td>
+    <td><%=h rss_item_score.classification_strategy_id %></td>
+    <td><%=h rss_item_score.sentiment_score %></td>
+    <td><%=h rss_item_score.objective_subjective_score %></td>
+    <td><%=h rss_item_score.average_sentiment_score %></td>
+    <td><%=h rss_item_score.average_importance_score %></td>
+    <td><%=h rss_item_score.average_objective_subjective_score %></td>
+    <td><%=h rss_item_score.average_trusted_untrusted_score %></td>
+    <td><%=h rss_item_score.average_relevant_irrelevant_score %></td>
+    <td><%= link_to 'Show', rss_item_score %></td>
+    <td><%= link_to 'Edit', edit_rss_item_score_path(rss_item_score) %></td>
+    <td><%= link_to 'Destroy', rss_item_score, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rss_item_score', new_rss_item_score_path %>

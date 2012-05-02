@@ -1,0 +1,29 @@
+<h1>Listing classified_paragraphs</h1>
+
+<table>
+  <tr>
+    <th>Rss item</th>
+    <th>Quote Target</th>
+    <th>Last Rated By</th>
+    <th>Sentiment score</th>
+    <th>Objective subjective score</th>
+  </tr>
+
+<% for classified_paragraph in @classified_paragraphs %>
+  <tr>
+    <td><%=h classified_paragraph.rss_item_id %></td>
+    <td><%=h classified_paragraph.quote_target.symbol %></td>
+    <td><%=classified_paragraph.modified_by_user_id ? User.find(classified_paragraph.modified_by_user_id).email : "no user found" %></td>
+    <td><%=h classified_paragraph.sentiment_score %></td>
+    <td><%=h classified_paragraph.objective_subjective_score %></td>
+    <td><%= link_to 'Rate', :controller=>"rss_items", :action=>"show", :id=>classified_paragraph.rss_item_id, :quote_target_id=> classified_paragraph.quote_target.id %></td>
+    <td><%= link_to 'Show', classified_paragraph %></td>
+    <td><%= link_to 'Edit', edit_classified_paragraph_path(classified_paragraph) %></td>
+    <td><%= link_to 'Destroy', classified_paragraph, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New classified_paragraph', new_classified_paragraph_path %>

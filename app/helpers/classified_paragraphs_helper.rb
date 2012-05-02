@@ -1,0 +1,2 @@
+module ClassifiedParagraphsHelper
+end

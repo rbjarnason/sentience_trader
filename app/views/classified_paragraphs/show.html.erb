@@ -1,0 +1,53 @@
+<p>
+  <b>Rss item:</b>
+  <%=h @classified_paragraph.rss_item_id %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%=h @classified_paragraph.parent_id %>
+</p>
+
+<p>
+  <b>Valid:</b>
+  <%=h @classified_paragraph.valid %>
+</p>
+
+<p>
+  <b>Original compressed text:</b>
+  <%=h @classified_paragraph.original_compressed_text %>
+</p>
+
+<p>
+  <b>Processed compressed text:</b>
+  <%=h @classified_paragraph.processed_compressed_text %>
+</p>
+
+<p>
+  <b>Sentiment score:</b>
+  <%=h @classified_paragraph.sentiment_score %>
+</p>
+
+<p>
+  <b>Importance score:</b>
+  <%=h @classified_paragraph.importance_score %>
+</p>
+
+<p>
+  <b>Objective subjective score:</b>
+  <%=h @classified_paragraph.objective_subjective_score %>
+</p>
+
+<p>
+  <b>Trusted untrusted score:</b>
+  <%=h @classified_paragraph.trusted_untrusted_score %>
+</p>
+
+<p>
+  <b>Relevant irrelevant score:</b>
+  <%=h @classified_paragraph.relevant_irrelevant_score %>
+</p>
+
+
+<%= link_to 'Edit', edit_classified_paragraph_path(@classified_paragraph) %> |
+<%= link_to 'Back', classified_paragraphs_path %>

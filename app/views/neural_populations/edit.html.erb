@@ -1,0 +1,52 @@
+<h1>Editing neural_population</h1>
+
+<%= error_messages_for :neural_population %>
+
+<% form_for(@neural_population) do |f| %>
+  <p>
+    <b>Max generations</b><br />
+    <%= f.text_field :max_generations %>
+  </p>
+
+  <p>
+    <b>Type</b><br />
+    <%= f.text_field :network_type %>
+  </p>
+
+  <p>
+    <b>Time span type</b><br />
+    <%= f.text_field :time_span_type %>
+  </p>
+
+  <p>
+    <b>Population Size</b><br />
+    <%= f.text_field :population_size %>
+  </p>
+
+  <p>
+    <b>Best fitness</b><br />
+    <%= f.text_field :best_fitness %>
+  </p>
+
+  <p>
+    <b>Current generation</b><br />
+    <%= f.text_field :current_generation %>
+  </p>
+
+	<p><label for=":quote_target_id">Quote target</label><br/>
+	  <select name="quote_target_id">
+	   <% @quote_targets.each do |target| %>
+	       <option value="<%= target.id %>" <%= @neural_population.quote_target_id==target.id ? "selected" : ""%>>
+	         <%= target.symbol %>
+	       </option>
+	   <% end %>
+	   </select>
+	</p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @neural_population %> |
+<%= link_to 'Back', neural_populations_path %>

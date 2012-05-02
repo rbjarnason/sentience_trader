@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  max_generations: 1
+  best_fitness: 1.5
+  current_generation: 1
+
+two:
+  max_generations: 1
+  best_fitness: 1.5
+  current_generation: 1

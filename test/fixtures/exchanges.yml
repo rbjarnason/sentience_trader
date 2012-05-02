@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  symbol_data_url: MyString
+  symbol_data_format: MyString
+  active: false
+
+two:
+  name: MyString
+  symbol_data_url: MyString
+  symbol_data_format: MyString
+  active: false

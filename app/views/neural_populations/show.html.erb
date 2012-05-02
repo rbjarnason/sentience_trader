@@ -1,0 +1,18 @@
+<p>
+  <b>Max generations:</b>
+  <%=h @neural_population.max_generations %>
+</p>
+
+<p>
+  <b>Best fitness:</b>
+  <%=h @neural_population.best_fitness %>
+</p>
+
+<p>
+  <b>Current generation:</b>
+  <%=h @neural_population.current_generation %>
+</p>
+
+
+<%= link_to 'Edit', edit_neural_population_path(@neural_population) %> |
+<%= link_to 'Back', neural_populations_path %>

@@ -1,0 +1,42 @@
+<h1>New neural_population</h1>
+
+<%= error_messages_for :neural_population %>
+
+<% form_for(@neural_population) do |f| %>
+
+  <p>
+    <b>Type</b><br />
+    <%= f.text_field :network_type, :default=>"only_delayed_stock_data_1" %>
+  </p>
+
+  <p>
+    <b>Time span type</b><br />
+    <%= f.text_field :time_span_type, :default=>"1_hour" %>
+  </p>
+
+  <p>
+    <b>Max generations</b><br />
+    <%= f.text_field :max_generations, :default=>"2" %>
+  </p>
+
+  <p>
+    <b>Population Size</b><br />
+    <%= f.text_field :population_size, :default=>"2" %>
+  </p>
+
+	<p><label for=":quote_target_id">Quote target</label><br/>
+	  <select name="quote_target_id">
+	   <% @quote_targets.each do |target| %>
+	       <option value="<%= target.id %>" <%= @neural_population.quote_target_id==target.id ? "selected" : ""%>>
+	         <%= target.symbol %>
+	       </option>
+	   <% end %>
+	   </select>
+	</p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', neural_populations_path %>

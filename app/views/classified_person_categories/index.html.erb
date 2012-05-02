@@ -1,0 +1,20 @@
+<h1>Listing classified_person_categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @classified_person_categories.each do |classified_person_category| %>
+  <tr>
+    <td><%=h classified_person_category.name %></td>
+    <td><%= link_to 'Show', classified_person_category %></td>
+    <td><%= link_to 'Edit', edit_classified_person_category_path(classified_person_category) %></td>
+    <td><%= link_to 'Destroy', classified_person_category, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New classified_person_category', new_classified_person_category_path %>

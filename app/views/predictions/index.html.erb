@@ -1,0 +1,38 @@
+<h1>Listing predictions</h1>
+<%if @neural_strategy%>
+  <%="Strategy info for #{@neural_strategy.id} Max epochs: #{@neural_strategy.max_epochs} Hidden Neurons: #{@neural_strategy.hidden_neurons.inspect} Selected inputs: #{@neural_strategy.selected_inputs.inspect}"%>
+<%end%><br><br>
+<%=@neural_strategy.use_cascade? ? "CASCADE TRAINING" : "NORMAL TRAINING"%><br>
+<%=@neural_strategy.sell_by_prediction? ? "Sell by prediction" : "Sell by real down value"%><br>
+<%="Buy threshold % #{number_with_precision(@neural_strategy.signal_threshold_settings[0]*100,2)}"%><br>
+<%="Sell threshold % #{number_with_precision(@neural_strategy.signal_threshold_settings[1]*100,2)}"%><br>
+<% i = InvestmentStrategy.new %>
+<%invest = i.get_prediction_details(@neural_strategy,true)%>
+<br />
+<b>
+<%=invest[1]%>
+</b>
+<table width="100%">
+  <tr>
+    <th>Symbol</th>
+    <th>Data date</th>
+    <th>Neuron strategy</th>
+    <th>Current</th>
+    <th>Prediction</th>
+    <th>Actual Price</th>
+    <th>Difference</th>
+    <th>Actual date</th>
+    <th>Signal</th>
+    <th>Profit Loss</th>
+    <th>Error</th>
+  </tr>
+<br><br>
+<% for html_line in invest[0] %>
+  	<%=html_line%>
+<% end %>
+</table>
+
+
+<%if @neural_strategy%>
+  <%=@neural_strategy.network%>
+<%end%>

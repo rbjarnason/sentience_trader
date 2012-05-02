@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @exchanges.name %>
+</p>
+
+<p>
+  <b>Symbol data url:</b>
+  <%=h @exchanges.symbol_data_url %>
+</p>
+
+<p>
+  <b>Symbol data format:</b>
+  <%=h @exchanges.symbol_data_format %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @exchanges.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_exchanges_path(@exchanges) %> |
+<%= link_to 'Back', exchanges_path %>

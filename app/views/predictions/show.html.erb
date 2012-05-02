@@ -1,0 +1,18 @@
+<p>
+  <b>Neuron strategy:</b>
+  <%=h @prediction.neural_strategy_id %>
+</p>
+
+<p>
+  <b>Prediction value:</b>
+  <%=h @prediction.prediction_value %>
+</p>
+
+<p>
+  <b>Error value:</b>
+  <%=h @prediction.error_value %>
+</p>
+
+
+<%= link_to 'Edit', edit_prediction_path(@prediction) %> |
+<%= link_to 'Back', predictions_path %>

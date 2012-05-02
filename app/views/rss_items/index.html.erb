@@ -1,0 +1,29 @@
+<h1>Listing rss_items</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+    <th>Pubdate</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+
+<% for rss_item in @rss_items %>
+  <tr>
+    <td><%=h rss_item.title %></td>
+    <td><%=h rss_item.link %></td>
+    <td><%=h rss_item.pubDate %></td>
+    <td><%=h rss_item.created_at %></td>
+    <td><%=h rss_item.updated_at %></td>
+    <td><%= link_to 'Show', rss_item %></td>
+    <td><%= link_to 'Quotes', :action=>"parse_paragraphs", :id=>rss_item %></td>
+    <td><%= link_to 'Edit', edit_rss_item_path(rss_item) %></td>
+    <td><%= link_to 'Destroy', rss_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rss_item', new_rss_item_path %>

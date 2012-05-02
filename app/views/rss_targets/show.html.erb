@@ -1,0 +1,48 @@
+<p>
+  <b>Title:</b>
+  <%=h @rss_target.title %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @rss_target.url %>
+</p>
+
+<p>
+  <b>Parser:</b>
+  <%=h @rss_target.parser %>
+</p>
+
+<p>
+  <b>Url type:</b>
+  <%=h @rss_target.url_type %>
+</p>
+
+<p>
+  <b>Processing time interval:</b>
+  <%=h @rss_target.processing_time_interval %>
+</p>
+
+<p>
+  <b>Last processing time:</b>
+  <%=h @rss_target.last_processing_time %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @rss_target.active %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @rss_target.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @rss_target.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_rss_target_path(@rss_target) %> |
+<%= link_to 'Back', rss_targets_path %>

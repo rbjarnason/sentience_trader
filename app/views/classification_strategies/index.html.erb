@@ -1,0 +1,28 @@
+<h1>Listing classification_strategies</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Compressed data 1</th>
+    <th>Compressed data 2</th>
+    <th>Compressed data 3</th>
+  </tr>
+
+<% for classification_strategy in @classification_strategies %>
+  <tr>
+    <td><%=h classification_strategy.title %></td>
+    <td><%=h classification_strategy.description %></td>
+    <td><%=h classification_strategy.compressed_data_1 %></td>
+    <td><%=h classification_strategy.compressed_data_2 %></td>
+    <td><%=h classification_strategy.compressed_data_3 %></td>
+    <td><%= link_to 'Show', classification_strategy %></td>
+    <td><%= link_to 'Edit', edit_classification_strategy_path(classification_strategy) %></td>
+    <td><%= link_to 'Destroy', classification_strategy, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New classification_strategy', new_classification_strategy_path %>

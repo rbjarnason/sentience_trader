@@ -1,0 +1,32 @@
+<h1>Listing neural_populations</h1>
+
+<table>
+  <tr>
+    <th>Symbol</th>
+    <th>Max generations</th>
+    <th>Populations</th>
+    <th>Best fitness</th>
+    <th>Best strategy</th>
+    <th>Current generation</th>
+    <th>Outstanding work units</th>
+  </tr>
+
+<% for neural_population in @neural_populations %>
+  <tr>
+    <td><%=h neural_population.quote_target.symbol %></td>
+    <td><%=h neural_population.max_generations %></td>
+    <td><%=h neural_population.population_size %></td>
+    <td><%=h neural_population.best_fitness %></td>
+    <td><a href="/predictions?only_id=<%=neural_population.best_neural_strategy_id%>"><%=h neural_population.best_neural_strategy_id%></a></td>
+    <td><%=h neural_population.current_generation %></td>
+    <td><%=h neural_population.neural_strategies.find(:all, :conditions=>"complete = 0 AND error_flag = 0").length%></td>
+    <td><%= link_to 'Show', neural_population %></td>
+    <td><%= link_to 'Edit', edit_neural_population_path(neural_population) %></td>
+    <td><%= link_to 'Destroy', neural_population, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New neural_population', new_neural_population_path %>

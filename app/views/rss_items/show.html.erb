@@ -1,0 +1,237 @@
+<script type="text/javascript" language="javascript">
+                	    // <![CDATA[
+            			    function getSentimentWord(sentiment) {
+            					if (sentiment==1) {
+            						return "very negative";
+            					} else if (sentiment==2) {
+            						return "negative";						
+            					} else if (sentiment==3) {
+            						return "neutral/ignore";						
+            					} else if (sentiment==4) {
+            						return "positive";						
+            					} else if (sentiment==5) {
+            						return "very positive";						
+            					}					
+            				};
+            
+            			    function getObjectiveSubjectiveWord(objsubj) {
+            					if (objsubj==1) {
+            						return "very objective";
+            					} else if (objsubj==2) {
+            						return "objective";						
+            					} else if (objsubj==4) {
+            						return "subjective";						
+            					} else if (objsubj==5) {
+            						return "very subjective";						
+            					}
+            				};
+
+                			window.onload = function() {
+                			    <% for paragraph in @rss_item.paragraphs(@quote_target.id) %>				  										
+                					 new Control.Slider('sentiment_handle1_<%=paragraph.id%>' , 'sentiment_track1_<%=paragraph.id%>',
+                				      {
+                				           range: $R(1,5),
+                				           values: [1,2,3,4,5],
+                				           sliderValue: <%=paragraph.get_sentiment_slider_value%>,
+                						   axis:'horizontal',
+                				           onChange: function(v){
+                				               $('sentiment_slider_value_1_<%=paragraph.id%>').innerHTML = "<small>Sentiment: "+getSentimentWord(v)+"</small>";
+            								   $('sentiment_slider_form_value_1_<%=paragraph.id%>').value = v;
+                				           },
+                				           onSlide: function(v) {
+                				               $('sentiment_slider_value_1_<%=paragraph.id%>').innerHTML = "<small>Sentiment: "+getSentimentWord(v)+"</small>";
+                				          }
+                				       } );
+            						 $('sentiment_slider_value_1_<%=paragraph.id%>').innerHTML = "<small>Sentiment: "+getSentimentWord(<%=paragraph.get_sentiment_slider_value%>)+"</small>";
+            					     $('sentiment_slider_form_value_1_<%=paragraph.id%>').value = <%=paragraph.get_sentiment_slider_value%>;
+            						 
+                					 new Control.Slider('objective_handle1_<%=paragraph.id%>' , 'objective_track1_<%=paragraph.id%>',
+                				      {
+                				           range: $R(1,5),
+                				           values: [2,4],
+                				           sliderValue: <%=paragraph.get_objective_slider_value%>,
+                						   axis:'horizontal',
+                				           onChange: function(v){
+                				               $('objective_slider_value_1_<%=paragraph.id%>').innerHTML = "<small>Objective/Subjective: "+getObjectiveSubjectiveWord(v)+"</small>";
+            								   $('objective_slider_form_value_1_<%=paragraph.id%>').value = v;
+                				           },
+                				           onSlide: function(v) {
+                				               $('objective_slider_value_1_<%=paragraph.id%>').innerHTML = "<small>Objective/Subjective: "+getObjectiveSubjectiveWord(v)+"</small>";
+                				          }
+                				       } );
+            							$('objective_slider_value_1_<%=paragraph.id%>').innerHTML = "<small>Objective/Subjective: "+getObjectiveSubjectiveWord(<%=paragraph.get_objective_slider_value%>)+"</small>";
+            					        $('objective_slider_form_value_1_<%=paragraph.id%>').value = <%=paragraph.get_objective_slider_value%>;
+                		 	    <% end %>
+                			}
+                	    // ]]>
+                	  
+</script>
+<table width="100%" valign="top">
+    <tr valign="top">
+        <td width="50%" valign="top">
+            <p>
+                Total rated count: <%= @all_rated_paragraphs_count %> My count: <%=@my_rated_paragraphs_count %>
+            </p>
+            <%=form_tag "rate_paragraphs", :action=>"/rss_items/rate_paragraphs" %>
+            <input type="hidden" name="rss_item_id" value="<%=@rss_item.id%>"/><input type="hidden" name="quote_target_id" value="<%=@quote_target.id%>"/>
+			<% for paragraph in @rss_item.paragraphs(@quote_target.id) %>
+            <input type="hidden" name="values_<%=paragraph.id%>[sv]" id="sentiment_slider_form_value_1_<%=paragraph.id%>" value="3"/><input type="hidden" name="values_<%=paragraph.id%>[ov]" id="objective_slider_form_value_1_<%=paragraph.id%>" value="3"/>
+			<% if paragraph.classified_people.length>0 %>
+			  <% p = paragraph.classified_people[0] %>
+			  <%="#{p.person_name} - #{p.position} - #{p.organization_name}"%>
+			<% end %>
+            <table width="100%" border="0">
+                <tr>
+                    <td>
+                        <%=color_st_targets(paragraph.processed_text) %>
+                    </td>
+                </tr>
+            </table>
+            <table width="500px">
+                <tr>
+                    <td>
+                        <div id='sentiment_slider_value_1_<%=paragraph.id%>'>
+                        </div>
+                    </td>
+                    <td>
+                        <div id='objective_slider_value_1_<%=paragraph.id%>'>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sentiment_track1_<%=paragraph.id%>" style="background-image:url(/images/bg-fader.gif); background-repeat:no-repeat; width:209px; height:28px;">
+                            <div id="sentiment_handle1_<%=paragraph.id%>" style="background-image:url(/images/thumb-n.gif); background-repeat:no-repeat; width:17px; height:21px; cursor:move;">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="objective_track1_<%=paragraph.id%>" style="background-image:url(/images/bg-fader.gif); background-repeat:no-repeat; width:209px; height:28px;">
+                            <div id="objective_handle1_<%=paragraph.id%>" style="background-image:url(/images/thumb-n.gif); background-repeat:no-repeat; width:17px; height:21px; cursor:move;">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <hr><% end %>
+            <br>
+            <center>
+                <%=submit_tag "Rate those paragraphs" %>
+                <%=submit_tag "Rate those paragraphs and get the next one" %>
+            </center>
+            </form>
+        </td>
+        <td width="50%" valign="top">
+            <B>Objective
+                Subjective Rules</B>
+            <br>
+            <UL>
+                    <LI>
+                        <B>Objective</B>
+                        <UL>
+                            <LI>
+                            any paragraphs that are all assumed fact by whoever wrote it
+                        </UL>
+                        <LI>
+                            <B>Subjective</B>
+                            <UL>
+                                <LI>
+                                any
+                                paragraphs that have any subjective comments or any views expressed
+                            </UL>
+                        </UL>
+                                <B>Sentiment
+                                    Rating Rules</B>
+                                <BR>
+                                <UL>
+                                    <LI>
+                                        <B>Very
+                                            Negative</B>
+                                        <UL>
+                                            <LI>
+                                                Objective
+                                                <UL>
+                                                    <LI>
+                                                    reserve
+                                                    for really bad news
+                                                </UL>
+                                                <LI>
+                                                    Subjective:
+                                                    <UL>
+                                                        <LI>
+                                                        reserve
+                                                        for very negative comments..
+                                                    </UL>
+                                                    </UL>
+                                                    <LI>
+                                                        <B>Negative</B>
+                                                        <UL>
+                                                            <LI>
+                                                                Objective
+                                                                <UL>
+                                                                    <LI>
+                                                                    any
+                                                                    negative news
+                                                                </UL>
+                                                                <LI>
+                                                                    Subjective:
+                                                                    <UL>
+                                                                        <LI>
+                                                                        any
+                                                                        negative comments, etc
+                                                                    </UL>
+                                                                    </UL>
+                                                                    <LI>
+                                                                        <B>Neutral</B>
+                                                                        <UL>
+                                                                            <LI>
+                                                                            neutral/ignore - system will ignore the Sentiment but will use the Objective/Subjective classification...
+                                                                        </UL>
+                                                                        <LI>
+                                                                            <B>Positive</B>
+                                                                            <UL>
+                                                                                <LI>
+                                                                                    Objective
+                                                                                    <UL>
+                                                                                        <LI>
+                                                                                        gain in currency
+                                                                                    </UL>
+                                                                                    <LI>
+                                                                                        Subjective
+                                                                                        <UL>
+                                                                                            <LI>
+                                                                                            any
+                                                                                            positive comments, etc
+                                                                                        </UL>
+                                                                                        </UL>
+                                                                                        <LI>
+                                                                                            <B>Very
+                                                                                                positive:</B>
+                                                                                            <UL>
+                                                                                                <LI>
+                                                                                                    Objective
+                                                                                                    <UL>
+                                                                                                        <LI>
+                                                                                                        very big gains
+                                                                                                    </UL>
+                                                                                                    <LI>
+                                                                                                        Subjective
+                                                                                                        <UL>
+                                                                                                            <LI>
+                                                                                                            very good comments
+                                                                                                        </UL>
+                                                                                                        </UL>
+                                                                                                    </UL>
+                                                                                                    * Be careful to always read and rate the paragraph from the perspective of the main actor, the token_currency in red - currency is provided above is provided for information
+                                                                                                    <br>
+                                                                                                    * You are just rating one currency at the time, the first currency in the pair e.g. GBP if the pair is GBP/USD - 
+																									you could be asked to rate the same paragraph many times with the token_currency in different places
+                                                                                                    <br>
+                                                                                                    * Rate things based on the words in the paragraph not the contex or what you know about the economics involved
+                                                                                                    <br>
+                                                                                                    <%@rss_item.get_clean_page %>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                </table>
+                                                                                                <p>
+                                                                                                </p>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rss_item_id: 1
+  parent_id: 1
+  valid: false
+  original_compressed_text: 
+  processed_compressed_text: 
+  sentiment_score: 1.5
+  importance_score: 1.5
+  objective_subjective_score: 1.5
+  trusted_untrusted_score: 1.5
+  relevant_irrelevant_score: 1.5
+
+two:
+  rss_item_id: 1
+  parent_id: 1
+  valid: false
+  original_compressed_text: 
+  processed_compressed_text: 
+  sentiment_score: 1.5
+  importance_score: 1.5
+  objective_subjective_score: 1.5
+  trusted_untrusted_score: 1.5
+  relevant_irrelevant_score: 1.5

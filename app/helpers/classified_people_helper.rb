@@ -1,0 +1,2 @@
+module ClassifiedPeopleHelper
+end

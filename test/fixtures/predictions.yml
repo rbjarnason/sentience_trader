@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  neuron_strategy_id: 1
+  prediction_value: 1.5
+  error_value: 1.5
+
+two:
+  neuron_strategy_id: 1
+  prediction_value: 1.5
+  error_value: 1.5

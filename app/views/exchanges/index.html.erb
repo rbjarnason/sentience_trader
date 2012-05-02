@@ -1,0 +1,26 @@
+<h1>Listing exchanges</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Symbol data url</th>
+    <th>Symbol data format</th>
+    <th>Active</th>
+  </tr>
+
+<% for exchanges in @exchanges %>
+  <tr>
+    <td><%=h exchanges.name %></td>
+    <td><%=h exchanges.symbol_data_url %></td>
+    <td><%=h exchanges.symbol_data_format %></td>
+    <td><%=h exchanges.active %></td>
+    <td><%= link_to 'Show', exchanges %></td>
+    <td><%= link_to 'Edit', edit_exchanges_path(exchanges) %></td>
+    <td><%= link_to 'Destroy', exchanges, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New exchanges', new_exchanges_path %>

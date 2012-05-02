@@ -1,0 +1,43 @@
+<h1>Listing Classified People</h1>
+
+<table>
+<% form_tag(:action=>"classify") do %>
+	<tr>
+		<td>
+		    <%= submit_tag("Submit") %> 	
+		</td>
+	</tr>
+  <tr>
+  	<th>Category</th>
+  	<th>Person Name</th>
+  	<th>Person Type</th>
+  	<th>Person Nationality</th>
+  	<th>Position</th>
+  	<th>Organization Name</th>
+  	<th>Organization Type</th>
+  	<th>Organization Nationality</th>
+  </tr>
+	<% @classified_people.each do |classified_person| %>
+	  <tr>
+		<td>
+			<% categories_array = [["Select",nil]] | @classified_categories.map{|category| [category.name, category.id] }%>
+			<%= select_tag("classified_person|#{classified_person.id}", options_for_select(categories_array)) %> 
+		</td>
+  	<td><b><%=classified_person.person_name.titlecase%></b></td>
+  	<td><%=classified_person.person_type%></td>
+  	<td><%=classified_person.person_nationality%></td>
+  	<td><b><%=classified_person.position ? classified_person.position.titlecase : nil%></b></td>
+	  	<td><b><%=classified_person.organization_name and classified_person.organization_name!="unknown-org" ? classified_person.organization_name.titlecase : ""%></b></td>
+	  	<td><%=classified_person.organization_type%></td>
+	  	<td><%=classified_person.organization_nationality%></td>
+	  </tr>
+	<% end %>
+	<tr>
+		<td>
+		    <%= submit_tag("Submit") %> 	
+		</td>
+	</tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New classified_person', new_classified_person_path %>

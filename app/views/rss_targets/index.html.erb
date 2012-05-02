@@ -1,0 +1,36 @@
+<h1>Listing rss_targets</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Url</th>
+	<th>Parser</th>
+    <th>Url type</th>
+    <th>Processing time interval</th>
+    <th>Last processing time</th>
+    <th>Active</th>
+    <th>Created at</th>
+    <th>Updated at</th>
+  </tr>
+
+<% for rss_target in @rss_targets %>
+  <tr>
+    <td><%=h rss_target.title %></td>
+    <td><%=h rss_target.url %></td>	
+    <td><%=h rss_target.parser %></td>
+    <td><%=h rss_target.url_type %></td>
+    <td><%=h rss_target.processing_time_interval %></td>
+    <td><%=h rss_target.last_processing_time %></td>
+    <td><%=h rss_target.active %></td>
+    <td><%=h rss_target.created_at %></td>
+    <td><%=h rss_target.updated_at %></td>
+    <td><%= link_to 'Show', rss_target %></td>
+    <td><%= link_to 'Edit', edit_rss_target_path(rss_target) %></td>
+    <td><%= link_to 'Destroy', rss_target, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rss_target', new_rss_target_path %>

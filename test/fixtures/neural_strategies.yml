@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  active: false
+  last_work_unit_time: 2008-06-20 15:58:09
+  max_epochs: 1
+  network: MyText
+  type: MyString
+  time_span_type: MyString
+  hidden_neurons: MyString
+  in_process: false
+  error_flag: false
+  quote_target_id: 1
+
+two:
+  title: MyString
+  active: false
+  last_work_unit_time: 2008-06-20 15:58:09
+  max_epochs: 1
+  network: MyText
+  type: MyString
+  time_span_type: MyString
+  hidden_neurons: MyString
+  in_process: false
+  error_flag: false
+  quote_target_id: 1

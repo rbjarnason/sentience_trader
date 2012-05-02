@@ -1,0 +1,48 @@
+<p>
+  <b>Rss item:</b>
+  <%=h @rss_item_score.rss_item_id %>
+</p>
+
+<p>
+  <b>Classification strategy:</b>
+  <%=h @rss_item_score.classification_strategy_id %>
+</p>
+
+<p>
+  <b>Sentiment score:</b>
+  <%=h @rss_item_score.sentiment_score %>
+</p>
+
+<p>
+  <b>Objective subjective score:</b>
+  <%=h @rss_item_score.objective_subjective_score %>
+</p>
+
+<p>
+  <b>Average sentiment score:</b>
+  <%=h @rss_item_score.average_sentiment_score %>
+</p>
+
+<p>
+  <b>Average importance score:</b>
+  <%=h @rss_item_score.average_importance_score %>
+</p>
+
+<p>
+  <b>Average objective subjective score:</b>
+  <%=h @rss_item_score.average_objective_subjective_score %>
+</p>
+
+<p>
+  <b>Average trusted untrusted score:</b>
+  <%=h @rss_item_score.average_trusted_untrusted_score %>
+</p>
+
+<p>
+  <b>Average relevant irrelevant score:</b>
+  <%=h @rss_item_score.average_relevant_irrelevant_score %>
+</p>
+
+
+<%= link_to 'Edit', edit_rss_item_score_path(@rss_item_score) %> |
+<%= link_to 'Back', rss_item_scores_path %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rss_item_id: 1
+  classification_strategy_id: 1
+  sentiment_score: 1
+  objective_subjective_score: 1.5
+  average_sentiment_score: 1.5
+  average_importance_score: 1.5
+  average_objective_subjective_score: 1.5
+  average_trusted_untrusted_score: 1.5
+  average_relevant_irrelevant_score: 1.5
+
+two:
+  rss_item_id: 1
+  classification_strategy_id: 1
+  sentiment_score: 1
+  objective_subjective_score: 1.5
+  average_sentiment_score: 1.5
+  average_importance_score: 1.5
+  average_objective_subjective_score: 1.5
+  average_trusted_untrusted_score: 1.5
+  average_relevant_irrelevant_score: 1.5

@@ -1,0 +1,26 @@
+<h1>New prediction</h1>
+
+<%= error_messages_for :prediction %>
+
+<% form_for(@prediction) do |f| %>
+  <p>
+    <b>Neuron strategy</b><br />
+    <%= f.text_field :neural_strategy_id %>
+  </p>
+
+  <p>
+    <b>Prediction value</b><br />
+    <%= f.text_field :prediction_value %>
+  </p>
+
+  <p>
+    <b>Error value</b><br />
+    <%= f.text_field :error_value %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', predictions_path %>

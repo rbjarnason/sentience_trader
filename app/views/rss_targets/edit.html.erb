@@ -1,0 +1,42 @@
+<h1>Editing rss_target</h1>
+
+<%= error_messages_for :rss_target %>
+
+<% form_for(@rss_target) do |f| %>
+  <p>
+    <b>Title</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <b>Parser</b><br />
+    <%= f.text_field :parser %>
+  </p>
+
+  <p>
+    <b>Url</b><br />
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <b>Url type</b><br />
+    <%= f.text_field :url_type %>
+  </p>
+
+  <p>
+    <b>Processing time interval</b><br />
+    <%= f.text_field :processing_time_interval %>
+  </p>
+
+  <p>
+    <b>Active</b><br />
+    <%= f.check_box :active %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @rss_target %> |
+<%= link_to 'Back', rss_targets_path %>

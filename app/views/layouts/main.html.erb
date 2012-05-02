@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>NeuralPopulations: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag 'prototype.js' %>
+  <%= javascript_include_tag 'effects.js' %>
+  <%= javascript_include_tag 'controls.js' %>
+  <%= javascript_include_tag 'slider.js' %>
+</head>
+<body>
+<h1>SENTIENCE TRADER</h1>
+<hr>
+<b>Choose:</b>
+        <!-- <%= link_to "Exchanges", :controller=>"exchanges"%> | -->
+        <%= link_to "Quote targets", :controller=>"quote_targets"%> |
+        <%= link_to "Quote Charts", :controller=>"quote_targets", :action=>"charts"%> -
+        <%= link_to "RSS targets", :controller=>"rss_targets"%> |
+        <%= link_to "RSS items", :controller=>"rss_items"%> |
+        <%= link_to "RSS items sample", :controller=>"rss_items", :action=>"sample_by_target"%> |
+        <%= link_to "Classify Paragraphs", :controller=>"rss_items", :action=>"get_one_to_rate"%> -
+        <%= link_to "Classification strategies", :controller=>"classification_strategies"%> | 
+        <%= link_to "Classified paragraphs", :controller=>"classified_paragraphs"%> |
+        <%= link_to "Classified people", :controller=>"classified_people"%> |
+        <%= link_to "Classify people", :controller=>"classified_people", :action=>"classify"%> |
+        <%= link_to "Classified Person Categories", :controller=>"classified_person_categories"%> |
+        <%= link_to "RSS item scores", :controller=>"rss_item_scores"%> -
+        <%= link_to "Neural populations", :controller=>"neural_populations"%> |
+        <%= link_to "Neural strategies", :controller=>"neural_strategies"%> |
+        <!--<%= link_to "Predictions", :controller=>"predictions"%> | -->
+        <%= link_to "Quote values", :controller=>"quote_values"%> -
+        <%= link_to "Logout", :controller=>"users", :action=>"logout"%>
+<hr>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</body>
+</html>

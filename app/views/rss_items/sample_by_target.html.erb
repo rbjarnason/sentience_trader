@@ -1,0 +1,29 @@
+<h1>Listing rss_items</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Link</th>
+    <th>Pubdate</th>
+  </tr>
+
+<% @rss_items.each do |quote_target_id, rss_items| %>
+  <tr>
+    <td><b><%=h QuoteTarget.find(quote_target_id).symbol %></b></td>
+  </tr>
+  <% rss_items.each do |rss_item|%>
+  <tr>
+    <td><%=h rss_item.title %></td>
+    <td><%=h rss_item.link %></td>
+    <td><%=h rss_item.pubDate %></td>
+    <td><%= link_to 'Show', :action => "show", :id => rss_item.id, :quote_target_id=>quote_target_id %></td>
+    <td><%= link_to 'Edit', edit_rss_item_path(rss_item) %></td>
+    <td><%= link_to 'Destroy', rss_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rss_item', new_rss_item_path %>

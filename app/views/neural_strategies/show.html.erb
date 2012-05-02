@@ -1,0 +1,58 @@
+<p>
+  <b>Title:</b>
+  <%=h @neural_strategy.title %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @neural_strategy.active %>
+</p>
+
+<p>
+  <b>Last work unit time:</b>
+  <%=h @neural_strategy.last_work_unit_time %>
+</p>
+
+<p>
+  <b>Max epochs:</b>
+  <%=h @neural_strategy.max_epochs %>
+</p>
+
+<p>
+  <b>Network:</b>
+  <%=h @neural_strategy.network %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @neural_strategy.network_type %>
+</p>
+
+<p>
+  <b>Time span type:</b>
+  <%=h @neural_strategy.time_span_type %>
+</p>
+
+<p>
+  <b>Hidden neurons:</b>
+  <%=h @neural_strategy.hidden_neurons %>
+</p>
+
+<p>
+  <b>In process:</b>
+  <%=h @neural_strategy.in_process %>
+</p>
+
+<p>
+  <b>Error flag:</b>
+  <%=h @neural_strategy.error_flag %>
+</p>
+
+<p>
+  <b>Quote target:</b>
+  <%=h @neural_strategy.quote_target_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_neural_strategy_path(@neural_strategy) %> |
+<%= link_to 'Back', neural_strategies_path %>

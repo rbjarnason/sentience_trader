@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyString
+  compressed_data_1: 
+  compressed_data_2: 
+  compressed_data_3: 
+
+two:
+  title: MyString
+  description: MyString
+  compressed_data_1: 
+  compressed_data_2: 
+  compressed_data_3: 

@@ -1,0 +1,35 @@
+<table>
+	<tr valing="top">
+		<td valing="top" width="50%">
+			<% quotes = @rss_item.calais_quotes.sort_by {|a| [ a[:person].name, a[:offset] ]} %>
+			<% quotes.each do |quote| %>
+			  <b><%=quote[:quote]%></b><br>
+			  <%=quote[:person].name %>, <%=quote[:person].persontype %>, <%=quote[:person].nationality %>
+			  <% if quote[:person].positions[0] %>
+  			    - <%=quote[:person].positions[0].name %>
+			  <% end %>
+			  <% if quote[:person].organizations[0] %>
+  			    - <%=quote[:person].organizations[0].name %> 
+  			    - <%=quote[:person].organizations[0].organizationtype %> 
+			  <% end %>
+			  <br><br>
+			<% end %>			
+		</td>
+	</tr>
+	<tr>
+		<td valing="top">
+			<hr>
+			<% @rss_item.create_paragraphs(QuoteTarget.find(:first),false,true).each do |p| %>
+			  <%= color_st_targets(Iconv.iconv('UTF-8//IGNORE//TRANSLIT', 'ASCII',p)[0]) %><br><br>
+			<% end %>			
+		</td>
+	</tr>	
+	<tr>
+		<td valing="top">
+			<hr>
+			<% @rss_item.parse_paragraphs.each do |p| %>
+			  <%=Iconv.iconv('UTF-8//IGNORE//TRANSLIT', 'ASCII',p)[0]%><br><br>
+			<% end %>
+		</td>
+	</tr>
+</table>

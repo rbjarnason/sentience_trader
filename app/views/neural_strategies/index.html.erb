@@ -1,0 +1,40 @@
+<h1>Listing neural_strategies</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Active</th>
+    <th>Only trading hours</th>
+    <th>Last work unit time</th>
+    <th>Max epochs</th>
+    <th>Network Type</th>
+    <th>Time span type</th>
+    <th>Hidden neurons</th>
+    <th>In process</th>
+    <th>Error flag</th>
+    <th>Quote target</th>
+  </tr>
+
+<% for neural_strategy in @neural_strategies %>
+  <tr>
+    <td><%=h neural_strategy.title %></td>
+    <td><%=h neural_strategy.active %></td>
+    <td><%=h neural_strategy.only_trading_hours %></td>
+    <td><%=h neural_strategy.last_work_unit_time %></td>
+    <td><%=h neural_strategy.max_epochs %></td>
+    <td><%=h neural_strategy.network_type %></td>
+    <td><%=h neural_strategy.time_span_type %></td>
+    <td><%=h neural_strategy.hidden_neurons %></td>
+    <td><%=h neural_strategy.in_process %></td>
+    <td><%=h neural_strategy.error_flag %></td>
+    <td><%=h neural_strategy.quote_target_id %></td>
+    <td><%= link_to 'Show', neural_strategy %></td>
+    <td><%= link_to 'Edit', edit_neural_strategy_path(neural_strategy) %></td>
+    <td><%= link_to 'Destroy', neural_strategy, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New neural_strategy', new_neural_strategy_path %>

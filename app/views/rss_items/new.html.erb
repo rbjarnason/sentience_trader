@@ -1,0 +1,56 @@
+<h1>New rss_item</h1>
+
+<%= error_messages_for :rss_item %>
+
+<% form_for(@rss_item) do |f| %>
+  <p>
+    <b>Title</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <b>Description</b><br />
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <b>Link</b><br />
+    <%= f.text_field :link %>
+  </p>
+
+  <p>
+    <b>Language</b><br />
+    <%= f.text_field :language %>
+  </p>
+
+  <p>
+    <b>Copyright</b><br />
+    <%= f.text_field :copyright %>
+  </p>
+
+  <p>
+    <b>Pubdate</b><br />
+    <%= f.datetime_select :pubDate %>
+  </p>
+
+  <p>
+    <b>Created at</b><br />
+    <%= f.datetime_select :created_at %>
+  </p>
+
+  <p>
+    <b>Updated at</b><br />
+    <%= f.datetime_select :updated_at %>
+  </p>
+
+  <p>
+    <b>Compressed</b><br />
+    <%= f.check_box :compressed %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', rss_items_path %>

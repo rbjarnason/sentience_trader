@@ -1,0 +1,32 @@
+<h1>Editing classification_strategy</h1>
+
+<% form_for(@classification_strategy) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :compressed_data_1 %><br />
+    <%= f.text_field :compressed_data_1 %>
+  </p>
+  <p>
+    <%= f.label :compressed_data_2 %><br />
+    <%= f.text_field :compressed_data_2 %>
+  </p>
+  <p>
+    <%= f.label :compressed_data_3 %><br />
+    <%= f.text_field :compressed_data_3 %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @classification_strategy %> |
+<%= link_to 'Back', classification_strategies_path %>

@@ -1,0 +1,46 @@
+<h1>Listing Classified People</h1>
+
+<table>
+  <tr>
+  	<th>Person Name</th>
+  	<th>Person Type</th>
+  	<th>Person Nationality</th>
+  	<th>Position</th>
+  	<th>Organization Name</th>
+  	<th>Organization Type</th>
+  	<th>Organization Nationality</th>
+  </tr>
+
+<% @classified_people.each do |classified_person| %>
+  <tr>
+  	<td><b><%=classified_person.person_name.titlecase%></b></td>
+  	<td><%=classified_person.person_type%></td>
+  	<td><%=classified_person.person_nationality%></td>
+  	<td><b><%=classified_person.position ? classified_person.position.titlecase : nil%></b></td>
+	  	<td><b><%=classified_person.organization_name and classified_person.organization_name!="unknown-org" ? Iconv.iconv('UTF-8//IGNORE//TRANSLIT', 'ASCII',classified_person.organization_name.titlecase)[0] : ""%></b></td>
+  	<td><%=classified_person.organization_type%></td>
+  	<td><%=classified_person.organization_nationality%></td>
+    <td><%= link_to 'Show', classified_person %></td>
+    <td><%= link_to 'Edit', edit_classified_person_path(classified_person) %></td>
+    <td><%= link_to 'Destroy', classified_person, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% if not classified_person.classified_paragraphs.empty? %>
+    <% classified_person.classified_paragraphs.each do |p|%>
+	<tr>
+		<td colspan=10>
+			<%=p.quote_target.symbol%> - <%=Iconv.iconv('UTF-8//IGNORE//TRANSLIT', 'ASCII',p.original_text)[0]%>
+		</td>
+	</tr>
+	<% end %>
+	<tr>
+		<td colspan=10>
+			<hr>
+		</td>
+	</tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New classified_person', new_classified_person_path %>

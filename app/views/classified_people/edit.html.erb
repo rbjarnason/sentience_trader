@@ -1,0 +1,12 @@
+<h1>Editing classified_person</h1>
+
+<% form_for(@classified_person) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @classified_person %> |
+<%= link_to 'Back', classified_people_path %>

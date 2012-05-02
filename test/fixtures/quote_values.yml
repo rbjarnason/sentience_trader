@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  quote_target_id: 1
+  data_time: 2008-06-20 04:09:37
+  price: 1.5
+  change: 1.5
+  volume: 1
+  today_open: 1.5
+  previous_close: 1.5
+  intraday_high: 1.5
+  intraday_low: 1.5
+  52_week_high: 1.5
+  52_week_low: 1.5
+
+two:
+  quote_target_id: 1
+  data_time: 2008-06-20 04:09:37
+  price: 1.5
+  change: 1.5
+  volume: 1
+  today_open: 1.5
+  previous_close: 1.5
+  intraday_high: 1.5
+  intraday_low: 1.5
+  52_week_high: 1.5
+  52_week_low: 1.5

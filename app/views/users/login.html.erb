@@ -1,0 +1,34 @@
+<span class="sub-box-txt"><% form_for :login_user do |login_form| %>
+    <table width="450px">
+        <tr>
+            <td width="50%">
+                <label for="name">
+                    Username:
+                </label>
+            </td>
+            <td width="50%" align="right">
+                <%= login_form.text_field :login_email %>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+                <label for="password">
+                    Password:
+                </label>
+            </td>
+            <td width="50%" align="right">
+                <%= login_form.password_field :login_password %>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%">
+            </td>
+            <td width="50%" align="right">
+            	<%= hidden_field_tag 'st_action', 'login' %>
+                <%= submit_tag "login" %>
+            </td>
+        </tr>
+    </table>
+    <% end %>
+</span>
+

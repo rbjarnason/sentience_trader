@@ -1,0 +1,71 @@
+<h1>Classification training</h1>
+
+<h2><%=@rss_item.title%></h2>
+
+<% @rss_item.paragraphs.each do |paragraph| %>
+  
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1>New classified_paragraph</h1>
+
+<% form_for(@classified_paragraph) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :rss_item_id %><br />
+    <%= f.text_field :rss_item_id %>
+  </p>
+  <p>
+    <%= f.label :parent_id %><br />
+    <%= f.text_field :parent_id %>
+  </p>
+  <p>
+    <%= f.label :valid %><br />
+    <%= f.check_box :valid %>
+  </p>
+  <p>
+    <%= f.label :original_compressed_text %><br />
+    <%= f.text_field :original_compressed_text %>
+  </p>
+  <p>
+    <%= f.label :processed_compressed_text %><br />
+    <%= f.text_field :processed_compressed_text %>
+  </p>
+  <p>
+    <%= f.label :sentiment_score %><br />
+    <%= f.text_field :sentiment_score %>
+  </p>
+  <p>
+    <%= f.label :importance_score %><br />
+    <%= f.text_field :importance_score %>
+  </p>
+  <p>
+    <%= f.label :objective_subjective_score %><br />
+    <%= f.text_field :objective_subjective_score %>
+  </p>
+  <p>
+    <%= f.label :trusted_untrusted_score %><br />
+    <%= f.text_field :trusted_untrusted_score %>
+  </p>
+  <p>
+    <%= f.label :relevant_irrelevant_score %><br />
+    <%= f.text_field :relevant_irrelevant_score %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', classified_paragraphs_path %>

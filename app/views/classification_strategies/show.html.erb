@@ -1,0 +1,28 @@
+<p>
+  <b>Title:</b>
+  <%=h @classification_strategy.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @classification_strategy.description %>
+</p>
+
+<p>
+  <b>Compressed data 1:</b>
+  <%=h @classification_strategy.compressed_data_1 %>
+</p>
+
+<p>
+  <b>Compressed data 2:</b>
+  <%=h @classification_strategy.compressed_data_2 %>
+</p>
+
+<p>
+  <b>Compressed data 3:</b>
+  <%=h @classification_strategy.compressed_data_3 %>
+</p>
+
+
+<%= link_to 'Edit', edit_classification_strategy_path(@classification_strategy) %> |
+<%= link_to 'Back', classification_strategies_path %>
